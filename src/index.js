@@ -24,18 +24,17 @@ const todoList = [
 ];
 
 const todoItem = document.querySelector('.todo-list');
-const myTodoList = () => {
-  // Lodash, now imported by this script
-  todoList.map((listElement) =>  {
-    const divElement = document.createElement('div');
-    divElement.classList.add('list-item');
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-    divElement.appendChild(checkbox);
-    const label = document.createElement('label');
-    label.innerText = listElement.description;
-    divElement.appendChild(label);
-    todoItem.appendChild(divElement);
-  })
+const myTodoList = (listElement) => {
+  const divElement = document.createElement('div');
+  divElement.classList.add('list-item');
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+  divElement.appendChild(checkbox);
+  const label = document.createElement('label');
+  label.innerText = listElement.description;
+  divElement.appendChild(label);
+  todoItem.appendChild(divElement);
 };
-myTodoList();
+
+// Lodash, now imported by this script
+todoList.forEach(myTodoList);
