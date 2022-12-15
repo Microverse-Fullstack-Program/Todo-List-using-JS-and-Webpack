@@ -6,7 +6,7 @@ const todoList = [
     description: 'Projects',
     completed: true,
     index: 1,
-}],
+  }],
   [{
     description: 'Code review',
     completed: true,
@@ -23,19 +23,19 @@ const todoList = [
     index: 3,
   }],
 ];
-const todoItem = document.querySelector('.todo-list')
+const todoItem = document.querySelector('.todo-list');
 const myTodoList = () => {
   // Lodash, now imported by this script
-  for (let i = 0; i< todoList.length; i++) {
+  for (let i = 0; i < todoList.length; i++) {
     const divElement = document.createElement('div');
-    divElement.classList.add('list-item')
+    divElement.classList.add('list-item');
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     divElement.appendChild(checkbox);
-    const label = document.createElement('label')
-    label.innerText = todoList[i][0].description
+    const label = document.createElement('label');
+    label.innerText = todoList[i][0].description;
     divElement.appendChild(label);
     todoItem.appendChild(divElement);
   }
-}
+};
 myTodoList();
