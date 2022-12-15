@@ -15,9 +15,21 @@
   },
   "devDependencies": {
     "css-loader": "^6.7.3",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
     "hint": "^2.0.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack-cli": "^5.0.1"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microverse-Fullstack-Program/Webpack-Todo-Lists.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Microverse-Fullstack-Program/Webpack-Todo-Lists/issues"
+  },
+  "homepage": "https://github.com/Microverse-Fullstack-Program/Webpack-Todo-Lists#readme"
 }
