@@ -23,6 +23,7 @@ const todoList = [
     index: 3,
   }],
 ];
+
 const todoItem = document.querySelector('.todo-list');
 const myTodoList = () => {
   // Lodash, now imported by this script
