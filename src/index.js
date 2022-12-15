@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 
 const todoList = [
@@ -27,7 +26,7 @@ const todoList = [
 const todoItem = document.querySelector('.todo-list');
 const myTodoList = () => {
   // Lodash, now imported by this script
-  for (let i = 0; i < todoList.length; i++) {
+  for (let i = 0; i < todoList.length; ++i) {
     const divElement = document.createElement('div');
     divElement.classList.add('list-item');
     const checkbox = document.createElement('input');
