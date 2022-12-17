@@ -1,7 +1,7 @@
 import './style.css';
 import addTodoItem from './modules/addNewItem.js';
 import displayTodoList from './modules/displayTodoList.js';
-import removeAllCheckedItem from './modules/removeAllSelected.js';
+//import removeAllCheckedItem from './modules/removeAllSelected.js';
 
 const form = document.querySelector('.form');
 const clearBtn = document.querySelector('.clear-btn');
@@ -13,10 +13,10 @@ form.addEventListener('submit', (event) => {
 });
 
 // Remove all selected items and reset index
-clearBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  removeAllCheckedItem();
-});
+// clearBtn.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   removeAllCheckedItem();
+// });
 
 window.addEventListener('DOMContentLoaded', () => {
   let todoListList = localStorage.getItem('todo_List');
