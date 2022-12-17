@@ -1,40 +1,27 @@
 import './style.css';
+import addTodoItem from './modules/addNewItem.js';
+import displayTodoList from './modules/displayTodoList.js';
+import removeAllCheckedItem from './modules/removeAllSelected.js';
 
-const todoList = [
-  {
-    description: 'Projects',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'Code review',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'Study lesson',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Standup Meets',
-    completed: false,
-    index: 3,
-  },
-];
+const form = document.querySelector('.form');
+const clearBtn = document.querySelector('.clear-btn');
 
-const todoItem = document.querySelector('.todo-list');
-const myTodoList = (listElement) => {
-  const divElement = document.createElement('div');
-  divElement.classList.add('list-item');
-  const checkbox = document.createElement('input');
-  checkbox.setAttribute('type', 'checkbox');
-  divElement.appendChild(checkbox);
-  const label = document.createElement('label');
-  label.innerText = listElement.description;
-  divElement.appendChild(label);
-  todoItem.appendChild(divElement);
-};
+// Add new todo list on form submission
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  addTodoItem();
+});
 
-// Lodash, now imported by this script
-todoList.forEach(myTodoList);
+// Remove all selected items and reset index
+clearBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  removeAllCheckedItem();
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  let todoListList = localStorage.getItem('todo_List');
+  if (todoListList) {
+    todoListList = JSON.parse(todoListList);
+    todoListList.forEach(displayTodoList);
+  }
+});
