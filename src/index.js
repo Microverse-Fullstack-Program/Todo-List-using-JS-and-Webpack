@@ -4,7 +4,7 @@ import displayTodoList from './modules/displayTodoList.js';
 // import removeAllCheckedItem from './modules/removeAllSelected.js';
 
 const form = document.querySelector('.form');
-//const clearBtn = document.querySelector('.clear-btn');
+// Const clearBtn = document.querySelector('.clear-btn');
 
 // Add new todo list on form submission
 form.addEventListener('submit', (event) => {
