@@ -1,10 +1,10 @@
 import './style.css';
 import addTodoItem from './modules/addNewItem.js';
 import displayTodoList from './modules/displayTodoList.js';
-//import removeAllCheckedItem from './modules/removeAllSelected.js';
+// import removeAllCheckedItem from './modules/removeAllSelected.js';
 
 const form = document.querySelector('.form');
-const clearBtn = document.querySelector('.clear-btn');
+//const clearBtn = document.querySelector('.clear-btn');
 
 // Add new todo list on form submission
 form.addEventListener('submit', (event) => {
