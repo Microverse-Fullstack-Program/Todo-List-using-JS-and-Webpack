@@ -92,7 +92,7 @@ body {
 }
 
 .fa-ellipsis-vertical {
-  cursor: pointer;
+  cursor: move;
 }
 
 .fa-trash {
