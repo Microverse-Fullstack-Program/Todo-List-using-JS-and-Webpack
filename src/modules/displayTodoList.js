@@ -4,13 +4,14 @@ import removeTask from './removeTask.js';
 
 const todoItems = document.querySelector('.todo-list');
 const displayTodoList = (listElement) => {
+
   // Create to-do item container
   const divElement = document.createElement('div');
   divElement.classList.add('list-item');
   const attr = document.createAttribute('data-index');
   attr.value = listElement.index;
   divElement.setAttributeNode(attr);
-  todoItems.appendChild(divElement);
+  todoItems.insertBefore(divElement, todoItems.firstElementChild);
 
   // Create checkbox and todo-tasks title container
   const todoTitle = document.createElement('div');
