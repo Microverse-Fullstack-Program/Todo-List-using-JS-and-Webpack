@@ -4,7 +4,6 @@ import removeTask from './removeTask.js';
 
 const todoItems = document.querySelector('.todo-list');
 const displayTodoList = (listElement) => {
-
   // Create to-do item container
   const divElement = document.createElement('div');
   divElement.classList.add('list-item');
