@@ -33,3 +33,34 @@ describe('Test add new todo task', () => {
     expect(todoTasks[4].completed).toBe(storedData[4].completed);
   });
 })
+
+describe('Test Remove todo task', () => {
+  test('Removing non existing element', () => {
+    let storedData = removeTask(6); 
+    expect(storedData).toHaveLength(5);
+  });
+ 
+  test('Removing 2 elements', () => {
+    let storedData = [];
+    for (let index = 4; index <= 5; index += 1) {
+        storedData = removeTask(index);
+    }    
+    expect(storedData).toHaveLength(3);
+  });
+ 
+  test('Removing the 3rd element', () => {
+    let storedData = removeTask(3);
+    expect(storedData).toHaveLength(2);
+  });
+ 
+  test('Removing the 2nd element', () => {
+    let storedData = removeTask(2);
+    expect(storedData[0].description).toBe(storedData[0].description);
+  });
+ 
+  test('Removing the last element', () => {
+ 
+    let storedData = removeTask(1);
+    expect(storedData.length).toBe(0);
+  });
+});
