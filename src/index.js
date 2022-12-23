@@ -3,7 +3,7 @@ import addTodoItem from './modules/addTodo.js';
 import displayTodoList from './modules/displayTodo.js';
 import editTodoTask from './modules/editTask.js';
 import removeAllCheckedItem from './modules/removeAllSelected.js';
-import removeTask from './modules/removeTask';
+import removeTask from './modules/removeTask.js';
 
 const form = document.querySelector('.form');
 const todoInput = document.querySelector('.todo-item-input');
@@ -13,10 +13,10 @@ let todoList = [];
 // Add new todo list on form submission
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  if(todoInput.value) {
+  if (todoInput.value) {
     addTodoItem(todoInput.value, todoList);
     todoInput.value = '';
-    let newItemIndex = todoList.length - 1;
+    const newItemIndex = todoList.length - 1;
     displayTodoList(todoList[newItemIndex]);
   }
 });
@@ -40,33 +40,30 @@ form.addEventListener('submit', (event) => {
 //   });
 // });
 
-// eventListener for option and remove button 
+// eventListener for option and remove button
 document.addEventListener('click', (e) => {
   if (e.target.className === 'fa-solid fa-ellipsis-vertical') {
-    let optionBtn =  e.target;
+    const optionBtn = e.target;
     optionBtn.classList.add('hide-optionBtn');
-  
-    let delBtn = e.target.parentElement.lastChild;
-    delBtn.classList.add('show-trashBtn');
-    editTodoTask(e, delBtn, optionBtn)
-  }
 
-  else if (e.target.className === 'fa-solid fa-trash-clock fa-trash show-trashBtn') {
-    const { index }  = e.target.parentElement.parentElement.dataset;
+    const delBtn = e.target.parentElement.lastChild;
+    delBtn.classList.add('show-trashBtn');
+    editTodoTask(e, delBtn, optionBtn);
+  } else if (e.target.className === 'fa-solid fa-trash-clock fa-trash show-trashBtn') {
+    const { index } = e.target.parentElement.parentElement.dataset;
     todoList = removeTask(index);
     window.location.reload();
   }
-  });
+});
 
 // Remove all selected items and reset index
 clearBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log (parent.parentElement)
   removeAllCheckedItem();
 });
 
 window.addEventListener('load', () => {
-  let todoTasks = localStorage.getItem('todo_List');
+  const todoTasks = localStorage.getItem('todo_List');
   if (todoTasks) {
     todoList = JSON.parse(todoTasks);
     todoList.forEach(displayTodoList);

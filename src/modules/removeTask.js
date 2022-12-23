@@ -11,9 +11,8 @@ const removeTask = (index) => {
   if (todoList.length > 0) {
     localStorage.setItem('todo_List', JSON.stringify(todoList));
     return todoList;
-  } else {
-    return [];
   }
+  return [];
 };
 
 export default removeTask;
