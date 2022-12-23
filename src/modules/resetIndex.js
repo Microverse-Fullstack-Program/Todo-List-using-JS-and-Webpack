@@ -10,7 +10,6 @@ const resetIndex = () => {
     newList.push(newTodoItem);
   });
   localStorage.setItem('todo_List', JSON.stringify(newList));
-  window.location.reload();
 };
 
 export default resetIndex;
