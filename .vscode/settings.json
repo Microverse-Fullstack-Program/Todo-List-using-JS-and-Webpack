@@ -3,7 +3,11 @@
         "": true
     },
     "cSpell.words": [
+        "cbranch",
         "contenteditable",
+        "cstat",
+        "fstat",
+        "keyline",
         "webhint"
     ]
 }
