@@ -1,3 +1,4 @@
+import readLocalStorage from './storage.js';
 
 const removeTask = (index) => {
   let todoList = readLocalStorage();
