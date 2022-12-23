@@ -1,5 +1,3 @@
-import readLocalStorage from './storage.js';
-
 const todoItems = document.querySelector('.todo-list');
 const displayTodoList = (listElement) => {
   // Create to-do item container
@@ -33,35 +31,6 @@ const displayTodoList = (listElement) => {
   iconContainer.innerHTML = `<i class="fa-solid fa-ellipsis-vertical"></i>
         <i class="fa-solid fa-trash-clock fa-trash"></i>`;
   divElement.appendChild(iconContainer);
-
-  // Add event listener for checkbox
-  const checkboxes = document.querySelectorAll('.checkBtn');
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', (e) => {
-      const todoTaskTitle = e.target.nextElementSibling.childNodes[0];
-      const todoTaskContainer = e.target.parentElement.parentElement;
-      const { index } = todoTaskContainer.dataset;
-      const todoListList = readLocalStorage();
-      if (checkbox.checked === true) {
-        todoTaskTitle.style.textDecoration = 'line-through';
-        todoListList.filter((todoTask) => {
-          if (todoTask.index === index) {
-            todoTask.completed = true;
-          }
-          return false;
-        });
-      } else {
-        todoTaskTitle.style.textDecoration = 'none';
-        todoListList.filter((todoTask) => {
-          if (todoTask.index === index) {
-            todoTask.completed = false;
-          }
-          return false;
-        });
-      }
-      localStorage.setItem('todo_List', JSON.stringify(todoListList));
-    });
-  });
 };
 
 export default displayTodoList;

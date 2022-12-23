@@ -1,7 +1,7 @@
-import readLocalStorage from './storage.js';
-
 const removeTask = (index) => {
-  let todoList = readLocalStorage();
+  alert(uuuuu)
+  let todoList = localStorage.getItem('todo_List');
+  todoList = JSON.parse(todoList);
   todoList = todoList.filter((todoTask) => {
     if (todoTask.index !== index) {
       return true;
@@ -10,9 +10,9 @@ const removeTask = (index) => {
   });
   if (todoList.length > 0) {
     localStorage.setItem('todo_List', JSON.stringify(todoList));
-    return todoList;
-  }
-  return [];
+  } else {
+    localStorage.removeItem('todo_List');
+  }  
 };
 
 export default removeTask;

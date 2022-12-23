@@ -2,7 +2,7 @@ import addTodoItem from './addTodo.js';
 import removeTask from './removeTask.js';
 
 const todoTasks = [];
-describe('Test add new todo task', () => {
+describe('Test an add function - to record new todo task', () => {
   test('Adding a new todo task at 1', () => {
     addTodoItem('task1', todoTasks);
     expect(todoTasks).toHaveLength(1);
@@ -34,32 +34,36 @@ describe('Test add new todo task', () => {
   });
 });
 
-describe('Test Remove todo task', () => {
+describe('Test remove function - to delete todo task', () => {
   test('Removing non existing element', () => {
-    const storedData = removeTask(6);
+    removeTask(6);
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData).toHaveLength(5);
   });
 
   test('Removing 2 elements', () => {
-    let storedData = [];
     for (let index = 4; index <= 5; index += 1) {
-      storedData = removeTask(index);
+      removeTask(index);
     }
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData).toHaveLength(3);
   });
 
   test('Removing the 3rd element', () => {
-    const storedData = removeTask(3);
+    removeTask(3);
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData).toHaveLength(2);
   });
 
   test('Removing the 2nd element', () => {
-    const storedData = removeTask(2);
+    removeTask(2);
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[0].description).toBe(storedData[0].description);
   });
 
   test('Removing the last element', () => {
-    const storedData = removeTask(1);
-    expect(storedData.length).toBe(0);
+    removeTask(1);
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData).toBe(null);
   });
 });
