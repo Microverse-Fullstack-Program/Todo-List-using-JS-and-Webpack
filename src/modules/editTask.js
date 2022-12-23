@@ -2,7 +2,7 @@ import readLocalStorage from './storage.js';
 
 const editTodoTask = (event, delBtn, optionBtn) => {
   const parent = event.target.parentElement;
-  let taskContainer = parent.parentElement;
+  const taskContainer = parent.parentElement;
   taskContainer.classList.add('edit-task');
   const editingTask = document.createElement('input');
   editingTask.type = 'text';
