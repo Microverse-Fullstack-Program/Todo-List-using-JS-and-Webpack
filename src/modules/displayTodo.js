@@ -1,6 +1,4 @@
 import readLocalStorage from './storage.js';
-// import editTodoTask from './editTask.js';
-// import removeTask from './removeTask.js';
 
 const todoItems = document.querySelector('.todo-list');
 const displayTodoList = (listElement) => {
@@ -64,25 +62,6 @@ const displayTodoList = (listElement) => {
       localStorage.setItem('todo_List', JSON.stringify(todoListList));
     });
   });
-
-  // // Add event listener to icons
-  // const optionBtn = document.querySelectorAll('.fa-ellipsis-vertical');
-  // const deleteBtn = document.querySelectorAll('.fa-trash');
-  // optionBtn.forEach((btn) => {
-  //   btn.addEventListener('click', (e) => {
-  //     btn.classList.add('hide-optionBtn');
-  //     const delBtn = e.target.nextElementSibling;
-  //     delBtn.classList.add('show-trashBtn');
-  //     editTodoTask(e, divElement, btn, delBtn);
-  //   });
-  // });
-
-  // deleteBtn.forEach((btn) => {
-  //   btn.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     removeTask(listElement.index);
-  //   });
-  // });
 };
 
 export default displayTodoList;

@@ -21,25 +21,6 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-// Add event listener to icons
-// const optionBtn = document.querySelectorAll('.fa-ellipsis-vertical');
-// const deleteBtn = document.querySelectorAll('.fa-trash');
-// optionBtn.forEach((btn) => {
-//   btn.addEventListener('click', (e) => {
-//     btn.classList.add('hide-optionBtn');
-//     const delBtn = e.target.nextElementSibling;
-//     delBtn.classList.add('show-trashBtn');
-//     editTodoTask(e, divElement, btn, delBtn);
-//   });
-// });
-
-// deleteBtn.forEach((btn) => {
-//   btn.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     removeTask(listElement.index);
-//   });
-// });
-
 // eventListener for option and remove button
 document.addEventListener('click', (e) => {
   if (e.target.className === 'fa-solid fa-ellipsis-vertical') {
