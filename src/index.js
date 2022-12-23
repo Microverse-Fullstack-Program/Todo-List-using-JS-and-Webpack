@@ -80,6 +80,9 @@ document.addEventListener('click', (e) => {
     removeTask(index);
     resetIndex();
     window.location.reload();
+  } else if (e.target.className === 'fa-solid fa-rotate') {
+    localStorage.removeItem('todo_List')
+    window.location.reload();
   }
 });
 
