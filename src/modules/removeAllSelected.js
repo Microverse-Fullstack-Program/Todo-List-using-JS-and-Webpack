@@ -14,9 +14,8 @@ const removeAllCheckedItem = () => {
   if (todoList.length > 0) {
     localStorage.setItem('todo_List', JSON.stringify(todoList));
     resetIndex();
-  } else {
-    window.location.reload();
   }
+  window.location.reload();
 };
 
 export default removeAllCheckedItem;

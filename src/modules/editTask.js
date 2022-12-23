@@ -1,9 +1,9 @@
 import readLocalStorage from './storage.js';
 
-const editTodoTask = (event, taskContainer, OptionBtn, delBtn) => {
+const editTodoTask = (event, delBtn, optionBtn) => {
   const parent = event.target.parentElement;
-  parent.parentElement.classList.add('edit-task');
-
+  let taskContainer = parent.parentElement;
+  taskContainer.classList.add('edit-task');
   const editingTask = document.createElement('input');
   editingTask.type = 'text';
   editingTask.className = 'editing-input';
@@ -25,7 +25,7 @@ const editTodoTask = (event, taskContainer, OptionBtn, delBtn) => {
       currentTodoTitle.appendChild(selectedTask);
       currentTodoTitle.removeChild(editingTask);
       taskContainer.classList.remove('edit-task');
-      OptionBtn.classList.remove('hide-optionBtn');
+      optionBtn.classList.remove('hide-optionBtn');
       delBtn.classList.remove('show-trash');
 
       const updateTodoList = readLocalStorage();
