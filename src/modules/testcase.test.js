@@ -79,6 +79,7 @@ describe('Test clear completed function', () => {
       { description: 'task7', completed: false, index: 7 },
     ];
     localStorage.setItem('todo_List', JSON.stringify(storedData));
+    removeAllCheckedItem();
     storedData = JSON.parse(localStorage.getItem('todo_List'));
     localStorage.removeItem('todo_List');
     expect(storedData.length).toBe(4);
