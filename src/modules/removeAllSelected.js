@@ -1,8 +1,6 @@
-import readLocalStorage from './storage.js';
-import resetIndex from './resetIndex.js';
-
 const removeAllCheckedItem = () => {
-  let todoList = readLocalStorage();
+  let todoList = localStorage.getItem('todo_List');
+  todoList = JSON.parse(todoList);
 
   // Remove all checked todo items
   todoList = todoList.filter((todoTask) => {
@@ -11,11 +9,7 @@ const removeAllCheckedItem = () => {
     }
     return false;
   });
-  if (todoList.length > 0) {
-    localStorage.setItem('todo_List', JSON.stringify(todoList));
-    resetIndex();
-  }
-  window.location.reload();
+  localStorage.setItem('todo_List', JSON.stringify(todoList));
 };
 
 export default removeAllCheckedItem;

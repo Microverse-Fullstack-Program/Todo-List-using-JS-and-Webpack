@@ -1,6 +1,4 @@
-import readLocalStorage from './storage.js';
-
-const editTodoTask = (event, delBtn, optionBtn) => {
+const editTodoTask = (event) => {
   const parent = event.target.parentElement;
   const taskContainer = parent.parentElement;
   taskContainer.classList.add('edit-task');
@@ -10,34 +8,12 @@ const editTodoTask = (event, delBtn, optionBtn) => {
   const att = document.createAttribute('autofocus');
   att.value = true;
   editingTask.setAttributeNode(att);
-
   const selectedTask = parent.parentElement.childNodes[0].lastElementChild.childNodes[0];
   const currentTodoTitle = parent.previousElementSibling.lastElementChild;
   currentTodoTitle.removeChild(selectedTask);
+
   currentTodoTitle.appendChild(editingTask);
   editingTask.value = selectedTask.textContent.trim();
-  const editIndex = parent.parentElement.dataset.index;
-
-  editingTask.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      selectedTask.textContent = editingTask.value;
-
-      currentTodoTitle.appendChild(selectedTask);
-      currentTodoTitle.removeChild(editingTask);
-      taskContainer.classList.remove('edit-task');
-      optionBtn.classList.remove('hide-optionBtn');
-      delBtn.classList.remove('show-trash');
-
-      const updateTodoList = readLocalStorage();
-      updateTodoList.forEach((todoTask) => {
-        if (todoTask.index === editIndex && selectedTask.textContent) {
-          todoTask.description = selectedTask.textContent;
-        }
-      });
-      localStorage.setItem('todo_List', JSON.stringify(updateTodoList));
-      window.location.reload();
-    }
-  });
 };
 
 export default editTodoTask;
