@@ -5,9 +5,9 @@
 import addTodoItem from './addTodo.js';
 import removeTask from './removeTask.js';
 import removeAllCheckedItem from './removeAllSelected.js';
-// import editingDescription from './editDescription.js';
-// import editingStatus from './editStatus.js';
-// import displayTodoList from './displayTodo.js';
+import editingDescription from './editDescription.js';
+import editingStatus from './editStatus.js';
+import displayTodoList from './displayTodo.js';
 
 const todoTasks = [];
 describe('Test an add function - to record new todo task', () => {
