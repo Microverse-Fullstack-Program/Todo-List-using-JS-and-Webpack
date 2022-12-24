@@ -90,3 +90,29 @@ describe('Test clear completed function', () => {
     expect(storedData[4]).toBeUndefined();
   });
 });
+
+describe('Test editing function - completed status ', () => {
+  test("Update the first element's status", () => {
+    let storedData = [
+      { description: 'task1', completed: true, index: 1 },
+      { description: 'task2', completed: false, index: 2 },
+      { description: 'task3', completed: true, index: 3 },
+    ];
+    localStorage.setItem('todo_List', JSON.stringify(storedData));
+    editingStatus(1);
+    storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[0].completed).toEqual(false);
+  });
+ 
+  test('Re-edit the first element', () => {
+    editingStatus(1);
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[0].completed).toEqual(true);
+  });
+ 
+  test('Update the second element', () => {
+    editingStatus(2);
+    const storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[1].completed).toEqual(true);
+  });
+});
