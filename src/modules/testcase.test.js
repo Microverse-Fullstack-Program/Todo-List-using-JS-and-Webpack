@@ -125,3 +125,32 @@ describe('Test editing function - completed status ', () => {
     expect(storedData[1].completed).toEqual(true);
   });
 });
+
+describe('Test edit the update description array function', () => {
+  test("Editing the first element's description", () => {
+    let storedData = [
+      { description: 'task1', completed: true, index: 1 },
+      { description: 'task2', completed: false, index: 2 },
+      { description: 'task3', completed: true, index: 3 },
+    ];
+    localStorage.setItem('todo_List', JSON.stringify(storedData));
+ 
+    storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[0].description).toEqual('task1');
+ 
+    editingDescription(1, 'Edited Task1');
+ 
+    storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[0].description).toEqual('Edited Task1');
+  });
+ 
+  test("Editing the second element's description with empty string ", () => {
+    let storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[1].description).toEqual('task2');
+ 
+    editingDescription(1, '');
+ 
+    storedData = JSON.parse(localStorage.getItem('todo_List'));
+    expect(storedData[1].description).toEqual('task2');
+  });
+});
