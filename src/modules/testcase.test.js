@@ -4,7 +4,7 @@
 
 import addTodoItem from './addTodo.js';
 import removeTask from './removeTask.js';
-// import removeAllCheckedItem from './removeAllSelected.js';
+import removeAllCheckedItem from './removeAllSelected.js';
 // import editingDescription from './editDescription.js';
 // import editingStatus from './editStatus.js';
 // import displayTodoList from './displayTodo.js';
@@ -73,5 +73,29 @@ describe('Test remove function - to delete todo task', () => {
     removeTask(1);
     const storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData).toHaveLength(0);
+  });
+});
+
+describe('Test clear completed function', () => {
+  test('Clearing all completed task', () => {
+    let storedData = [
+      { description: 'task1', completed: true, index: 1 },
+      { description: 'task2', completed: false, index: 2 },
+      { description: 'task3', completed: true, index: 3 },
+      { description: 'task4', completed: false, index: 4 },
+      { description: 'task5', completed: true, index: 5 },
+      { description: 'task6', completed: false, index: 6 },
+      { description: 'task7', completed: false, index: 7 },
+    ];
+    localStorage.setItem('todo_List', JSON.stringify(storedData));
+    removeAllCheckedItem();
+    storedData = JSON.parse(localStorage.getItem('todo_List'));
+    localStorage.removeItem('todo_List');
+    expect(storedData.length).toBe(4);
+    expect(storedData).toHaveLength(4);
+    expect(storedData[0].completed).toBe(false);
+    expect(storedData[1].completed).toBe(false);
+    expect(storedData[2].completed).toBe(false);
+    expect(storedData[4]).toBeUndefined();
   });
 });
