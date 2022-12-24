@@ -1,7 +1,6 @@
-import readLocalStorage from './storage.js';
-
 const resetIndex = () => {
-  const todoList = readLocalStorage();
+  let todoList = localStorage.getItem('todo_List');
+  todoList = JSON.parse(todoList);
 
   // Reset index of exist todo tasks
   const newList = [];
