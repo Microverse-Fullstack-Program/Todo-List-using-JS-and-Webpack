@@ -1,7 +1,6 @@
-import readLocalStorage from './storage.js';
-
 const removeAllCheckedItem = () => {
-  let todoList = readLocalStorage();
+  let todoList = localStorage.getItem('todo_List');
+  todoList = JSON.parse(todoList);
 
   // Remove all checked todo items
   todoList = todoList.filter((todoTask) => {
