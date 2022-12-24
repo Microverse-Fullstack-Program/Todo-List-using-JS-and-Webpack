@@ -1,11 +1,11 @@
-const todoItems = document.querySelector('.todo-list');
-const displayTodoList = (listElement) => {
+const displayTodoList = (todoItems, listElement) => {
   // Create to-do item container
   const divElement = document.createElement('div');
   divElement.classList.add('list-item');
   const attr = document.createAttribute('data-index');
   attr.value = listElement.index;
   divElement.setAttributeNode(attr);
+
   todoItems.insertBefore(divElement, todoItems.firstElementChild);
 
   // Create checkbox and todo-tasks title container
