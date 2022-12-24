@@ -38,7 +38,9 @@
   },
   "jest": {
     "resetMocks": false,
-    "setupFiles": ["jest-localstorage-mock" ]
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
   },
   "main": "webpack.config.js",
   "repository": {
