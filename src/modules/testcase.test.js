@@ -154,3 +154,13 @@ describe('Test edit the update description array function', () => {
     expect(storedData[1].description).toEqual('task2');
   });
 });
+
+test('Test DOM manipulation functions', () => {
+  const listElement = { description: 'task1', index: 1 };
+  document.body.innerHTML = '<div class="todo-list"></div>';
+
+  let todoItems = document.querySelector('.todo-list');
+  displayTodoList(todoItems, listElement);
+  todoItems = document.querySelectorAll('.todo-list');
+  expect(todoItems).toHaveLength(1);
+});
