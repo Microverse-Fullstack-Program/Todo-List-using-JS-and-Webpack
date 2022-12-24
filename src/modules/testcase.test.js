@@ -1,5 +1,13 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import addTodoItem from './addTodo.js';
 import removeTask from './removeTask.js';
+import removeAllCheckedItem from './removeAllSelected.js';
+import editingDescription from './editDescription.js';
+import editingStatus from './editStatus.js';
+import displayTodoList from './displayTodo.js';
 
 const todoTasks = [];
 describe('Test an add function - to record new todo task', () => {
@@ -67,6 +75,7 @@ describe('Test remove function - to delete todo task', () => {
     expect(storedData).toHaveLength(0);
   });
 });
+
 describe('Test clear completed function', () => {
   test('Clearing all completed task', () => {
     let storedData = [
@@ -103,13 +112,13 @@ describe('Test editing function - completed status ', () => {
     storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[0].completed).toEqual(false);
   });
- 
+
   test('Re-edit the first element', () => {
     editingStatus(1);
     const storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[0].completed).toEqual(true);
   });
- 
+
   test('Update the second element', () => {
     editingStatus(2);
     const storedData = JSON.parse(localStorage.getItem('todo_List'));
@@ -125,23 +134,33 @@ describe('Test edit the update description array function', () => {
       { description: 'task3', completed: true, index: 3 },
     ];
     localStorage.setItem('todo_List', JSON.stringify(storedData));
- 
+
     storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[0].description).toEqual('task1');
- 
+
     editingDescription(1, 'Edited Task1');
- 
+
     storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[0].description).toEqual('Edited Task1');
   });
- 
+
   test("Editing the second element's description with empty string ", () => {
     let storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[1].description).toEqual('task2');
- 
+
     editingDescription(1, '');
- 
+
     storedData = JSON.parse(localStorage.getItem('todo_List'));
     expect(storedData[1].description).toEqual('task2');
   });
+});
+
+test('Test DOM manipulation functions', () => {
+  const listElement = { description: 'task1', index: 1 };
+  document.body.innerHTML = '<div class="todo-list"></div>';
+
+  let todoItems = document.querySelector('.todo-list');
+  displayTodoList(todoItems, listElement);
+  todoItems = document.querySelectorAll('.todo-list');
+  expect(todoItems).toHaveLength(1);
 });
