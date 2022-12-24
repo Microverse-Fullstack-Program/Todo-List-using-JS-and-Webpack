@@ -17,6 +17,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@babel/parser": "^7.20.7",
     "@babel/plugin-transform-modules-commonjs": "^7.20.7",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
