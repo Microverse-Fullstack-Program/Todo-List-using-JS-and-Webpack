@@ -29,7 +29,7 @@
 - [📝 License](#license)
 
 
-# 📖 Awesome Books: Plain JavaScript with Objects <a name="about-project"></a>
+# 📖 Todo List App <a name="about-project"></a>
 
 > This a to-do list web app where users can add, edit, and delete thier tasks. It built using plain JavaScript with ES6 and webpack. The aim of this project is to master ES6 and webpack. 
 
